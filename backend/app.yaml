@@ -1,1 +1,4 @@
 runtime: nodejs10
+
+beta_settings:
+    cloud_sql_instances: master-sector-289216:asia-southeast1:ueser-db
