@@ -61,7 +61,7 @@ class App extends Component {
   loginHandler = (event, authData) => {
     event.preventDefault();
     this.setState({ authLoading: true });
-    fetch("http://localhost:8080/auth/login", {
+    fetch("https://api-dot-master-sector-289216.et.r.appspot.com/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -113,7 +113,7 @@ class App extends Component {
   signupHandler = (event, authData) => {
     event.preventDefault();
     this.setState({ authLoading: true });
-    fetch("http://localhost:8080/auth/signup", {
+    fetch("https://api-dot-master-sector-289216.et.r.appspot.com/auth/signup", {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

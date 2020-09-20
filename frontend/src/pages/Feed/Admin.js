@@ -17,7 +17,7 @@ class Feed extends Component {
   };
 
   componentDidMount() {
-    fetch("http://localhost:8080/auth/userlist", {
+    fetch("https://api-dot-master-sector-289216.et.r.appspot.com/auth/userlist", {
       headers: {
         Authorization: "Bearer " + this.props.token,
       },
