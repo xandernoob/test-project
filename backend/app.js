@@ -35,6 +35,7 @@ const fileFilter = (req, file, cb) => {
   }
 };
 
+app.enable('trust proxy');
 app.use(helmet());
 app.use(compression());
 
