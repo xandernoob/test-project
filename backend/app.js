@@ -67,6 +67,10 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message, data: data });
 });
 
+app.use((req,res,next) => {
+  console.log("SERVER STARTED!");
+})
+
 app.listen(process.env.PORT || 8080)
 
 // sequelize
