@@ -7,8 +7,8 @@ const  Sequelize  = require("sequelize");
 
 const sequelize = new Sequelize('user_db_table', 'admin', 'password', {
   dialect: 'mysql',
-  host: '/cloudsql/master-sector-289216:asia-southeast1:ueser-db',
-  timestamps: false,
+  host: 'localhost',
+  // timestamps: false,
   dialectOptions: {
     socketPath: '/cloudsql/master-sector-289216:asia-southeast1:ueser-db'
 },
