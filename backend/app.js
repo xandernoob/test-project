@@ -2,10 +2,9 @@ const path = require("path");
 
 const express = require("express");
 const bodyParser = require("body-parser");
-// const mongoose = require("mongoose");
 const multer = require("multer");
 const { uuid } = require("uuidv4");
-// const sequelize = require("./database");
+const sequelize = require("./database");
 const helmet = require("helmet");
 const compression = require("compression");
 
@@ -57,7 +56,7 @@ app.use((req, res, next) => {
 });
 
 // app.use("/feed", feedRoutes);
-// app.use("/auth", authRoutes);
+app.use("/auth", authRoutes);
 
 app.use((error, req, res, next) => {
   console.log(error);
@@ -66,10 +65,6 @@ app.use((error, req, res, next) => {
   const data = error.data;
   res.status(status).json({ message: message, data: data });
 });
-
-app.use((req,res,next) => {
-  console.log("SERVER STARTED!");
-})
 
 app.listen(process.env.PORT || 8080)
 
