@@ -2,10 +2,10 @@ const path = require("path");
 
 const express = require("express");
 const bodyParser = require("body-parser");
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
 const multer = require("multer");
 const { uuid } = require("uuidv4");
-const sequelize = require("./database");
+// const sequelize = require("./database");
 const helmet = require("helmet");
 const compression = require("compression");
 
@@ -57,7 +57,7 @@ app.use((req, res, next) => {
 });
 
 // app.use("/feed", feedRoutes);
-app.use("/auth", authRoutes);
+// app.use("/auth", authRoutes);
 
 app.use((error, req, res, next) => {
   console.log(error);
@@ -67,15 +67,17 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message, data: data });
 });
 
-sequelize
-  .sync()
-  .then((result) => {
-    // console.log(result);
-    app.listen(process.env.PORT || 8080);
-  })
-  .catch((err) => {
-    console.log(err);
-  });
+app.listen(process.env.PORT || 8080)
+
+// sequelize
+//   .sync()
+//   .then((result) => {
+//     // console.log(result);
+//     app.listen(process.env.PORT || 8080);
+//   })
+//   .catch((err) => {
+//     console.log(err);
+//   });
 // mongoose
 //   .connect(
 //     "mongodb+srv://xander:uE!cv_Tx9k*77n6@cluster-betp9.mongodb.net/messages"
