@@ -66,17 +66,15 @@ app.use((error, req, res, next) => {
   res.status(status).json({ message: message, data: data });
 });
 
-app.listen(process.env.PORT || 8080)
-
-// sequelize
-//   .sync()
-//   .then((result) => {
-//     // console.log(result);
-//     app.listen(process.env.PORT || 8080);
-//   })
-//   .catch((err) => {
-//     console.log(err);
-//   });
+sequelize
+  .sync()
+  .then((result) => {
+    console.log(result);
+    app.listen(process.env.PORT || 8080);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
 // mongoose
 //   .connect(
 //     "mongodb+srv://xander:uE!cv_Tx9k*77n6@cluster-betp9.mongodb.net/messages"
