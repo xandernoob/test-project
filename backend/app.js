@@ -6,6 +6,8 @@ const mongoose = require("mongoose");
 const multer = require("multer");
 const { uuid } = require("uuidv4");
 const sequelize = require("./database");
+const helmet = require("helmet");
+const compression = require("compression");
 
 // const feedRoutes = require("./routes/feed");
 const authRoutes = require("./routes/auth");
@@ -32,6 +34,9 @@ const fileFilter = (req, file, cb) => {
     cb(null, false);
   }
 };
+
+app.use(helmet());
+app.use(compression());
 
 // app.use(bodyParser.urlencoded()); // x-www-form-urlencoded <form>
 app.use(bodyParser.json()); // application/json
@@ -65,7 +70,7 @@ sequelize
   .sync()
   .then((result) => {
     // console.log(result);
-    const server = app.listen(8080);
+    app.listen(process.env.PORT || 8080);
   })
   .catch((err) => {
     console.log(err);
