@@ -8,7 +8,6 @@ const sequelize = require("./database");
 const helmet = require("helmet");
 const compression = require("compression");
 
-// const feedRoutes = require("./routes/feed");
 const authRoutes = require("./routes/auth");
 
 const app = express();
@@ -55,7 +54,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// app.use("/feed", feedRoutes);
 app.use("/auth", authRoutes);
 
 app.use((error, req, res, next) => {
@@ -75,15 +73,4 @@ sequelize
   .catch((err) => {
     console.log(err);
   });
-// mongoose
-//   .connect(
-//     "mongodb+srv://xander:uE!cv_Tx9k*77n6@cluster-betp9.mongodb.net/messages"
-//   )
-//   .then((result) => {
-//     const server = app.listen(8080);
-//     const io = require("./socket").init(server);
-//     io.on("connection", (socket) => {
-//       console.log("Client connected");
-//     });
-//   })
-//   .catch((err) => console.log(err));
+

@@ -36,11 +36,4 @@ router.get("/info", isAuth, authController.getUserInfo);
 router.get("/userlist", isAuth, authController.getUser);
 
 
-// router.patch(
-//   "/status",
-//   isAuth,
-//   [body("status").trim().not().isEmpty()],
-//   authController.updateUserStatus
-// );
-
 module.exports = router;

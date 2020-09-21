@@ -9,7 +9,6 @@ import MobileNavigation from "./components/Navigation/MobileNavigation/MobileNav
 import ErrorHandler from "./components/ErrorHandler/ErrorHandler";
 import FeedPage from "./pages/Feed/Feed";
 import AdminPage from './pages/Feed/Admin';
-import SinglePostPage from "./pages/Feed/SinglePost/SinglePost";
 import LoginPage from "./pages/Auth/Login";
 import SignupPage from "./pages/Auth/Signup";
 import "./App.css";
@@ -214,16 +213,6 @@ class App extends Component {
             exact
             render={(props) => (
               <FeedPage userId={this.state.userId} token={this.state.token} />
-            )}
-          />
-          <Route
-            path="/:postId"
-            render={(props) => (
-              <SinglePostPage
-                {...props}
-                userId={this.state.userId}
-                token={this.state.token}
-              />
             )}
           />
           <Redirect to="/" />
